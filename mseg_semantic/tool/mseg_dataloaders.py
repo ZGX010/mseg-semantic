@@ -46,7 +46,10 @@ def create_test_loader(
     # limit batch size to 1 if not performing batched inference
     batch_size = args.batch_size_val if use_batched_inference else 1
 
+    # test_loader = torch.utils.data.DataLoader(
+    #     test_data, batch_size=batch_size, shuffle=False, num_workers=args.workers, pin_memory=True
+    # )
     test_loader = torch.utils.data.DataLoader(
-        test_data, batch_size=batch_size, shuffle=False, num_workers=args.workers, pin_memory=True
+        test_data, batch_size=batch_size, shuffle=False, num_workers=args.workers, pin_memory=False
     )
     return test_loader, data_list
